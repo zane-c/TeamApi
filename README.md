@@ -1,4 +1,4 @@
-# TeamMemberApi
+# Team Member Api
 
 This project implements a team member management HTTP REST API built in Django using the Django Rest Framework and MySQL databases
 
@@ -25,13 +25,13 @@ Adding a member can be done with the following request :
 
     GET http://127.0.0.1:8000/members/
     
-Will return `200: OK` and a json reponse (example):
+Will return `200: OK` and a json response (example):
 
     [
     {
       "id": 1,
       "first_name": "Richard",
-      "last_name": "Hendrix",
+      "last_name": "Hendriks",
       "email_address": "rh@hooli.com",
       "phone_number": "805-252-5918",
       "role": "admin"
@@ -79,7 +79,7 @@ http reponse `201: Created` with the created object will be returned.
     
 ### Editing a team member
 
-Changing a team members data can be done with the follow request:
+Changing a team members data can be done with the following request:
     
     PATCH http://127.0.0.1:8000/members/9/
     
