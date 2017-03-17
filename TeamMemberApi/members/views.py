@@ -4,7 +4,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from members.models import Member
 from members.serializers import MemberSerializer
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.views import generic
 
 """
@@ -13,6 +13,7 @@ from django.views import generic
     for testing purposes
 """
 
+@csrf_protect
 def member_list(request):
     """
     Allows for GET requests for all members
@@ -34,6 +35,7 @@ def member_list(request):
         return JsonResponse(serializer.errors, status=400)
 
 
+@csrf_protect
 def member_detail(request, pk):
     """
     Allows operations on a specific member
@@ -72,8 +74,10 @@ def member_detail(request, pk):
         return HttpResponse(status=204)
 
 
+from django.views.decorators.csrf import ensure_csrf_cookie
+@ensure_csrf_cookie
 def index(request):
-    """For testing"""
+    """Loads testing view"""
     template_name = 'members/root.html'
     template = loader.get_template(template_name)
     return HttpResponse(template.render(request))
