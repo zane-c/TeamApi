@@ -1,3 +1,5 @@
+
+
 // Code From the Django Docs for allowing CSRF
 function getCookie(name) {
     var cookieValue = null;
@@ -21,6 +23,15 @@ function csrfSafeMethod(method) {
 
 var csrftoken = getCookie('csrftoken');
 
+// Adding token from cookie
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+
 function onSuccess(data, textStatus) {
     var str = JSON.stringify(data, null, 2);
     $('#data-dump').text(str)
@@ -28,7 +39,7 @@ function onSuccess(data, textStatus) {
 }
 
 function onError(jqXHR, xhr, textStatus){
-    $('#data-dump').text("Failed...")
+    $('#data-dump').text("")
     $('#response').text("response: " + textStatus)                           
 }
 
@@ -59,15 +70,6 @@ $('#GET2').click(function(){
 })
 
 $('#POST').click(function(){
-    // Adding token from cookie
-    $.ajaxSetup({
-        beforeSend: function(xhr, settings) {
-            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrftoken);
-            }
-        }
-    });
-
     $('#request').text("POST http://127.0.0.1:8000/members/")
     $.ajax({
         url: 'http://127.0.0.1:8000/members/',
@@ -87,26 +89,24 @@ $('#PATCH').click(function(){
         type: 'PATCH',                   
         contentType: 'application/json',
         dataType: 'json',
-        data: '{"role": "admin"}',
+        data: '{"role": "regular"}',
         success: onSuccess,
         error: onError
     })
 })
 
 $('#DELETE').click(function(){
-    $('#request').text("DELETE http://127.0.0.1:8000/members/16/")
+    var url = "http://127.0.0.1:8000/members/20/"
+    $('#request').text("DELETE " + url)
+    $('#data-dump').text("")
     $.ajax({
-        url: 'http://127.0.0.1:8000/members/16/',
+        url: url,
         type: 'DELETE',                   
         contentType: 'application/json',
         dataType: 'json',
         success: function(data, textStatus){
-            $('#data-dump').text("")
-            $('#response').text("response: " + textStatus)
+            $('#response').text("response: success")
         },
-        error: function(jqXHR, xhr, textStatus){
-            $('#data-dump').text("")
-            $('#response').text("response: " + textStatus)                           
-       }
+        error: onError
     })
 })

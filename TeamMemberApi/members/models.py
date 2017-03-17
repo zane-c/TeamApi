@@ -1,11 +1,17 @@
 from django.db import models
+from  django.core.exceptions import ValidationError
+
+def validate_role(value):
+    if not (value == 'regular' or value == 'admin'):
+        raise ValidationError(value + ' is not a valid role')
+
 
 class Member(models.Model):
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
     email_address = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=20)
-    role = models.CharField(max_length=8)
+    role = models.CharField(validators=[validate_role], max_length=8)
 
     def update(self, new_values):
         for key in new_values:
@@ -25,3 +31,5 @@ class Member(models.Model):
 
     def __str__(self):
         return self.first_name + "-" + self.last_name
+
+

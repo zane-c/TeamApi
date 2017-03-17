@@ -6,6 +6,7 @@ from members.models import Member
 from members.serializers import MemberSerializer
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.views import generic
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 """
     WARNING: Cross site requests not allowed. You can
@@ -74,7 +75,6 @@ def member_detail(request, pk):
         return HttpResponse(status=204)
 
 
-from django.views.decorators.csrf import ensure_csrf_cookie
 @ensure_csrf_cookie
 def index(request):
     """Loads testing view"""
