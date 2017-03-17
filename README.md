@@ -21,7 +21,7 @@ A member in the database conforms to this model:
 
 ### Listing all members in database
 
-Adding a member can be done with the following request :
+Listing a member can be done with the following request:
 
     GET http://127.0.0.1:8000/members/
     
@@ -48,7 +48,7 @@ Will return `200: OK` and a json response (example):
     
 ### Listing a single member by id
 
-A single member from the db can be retreived
+A single member from the db can be retreived with:
 
     GET http://127.0.0.1:8000/members/9/
 
