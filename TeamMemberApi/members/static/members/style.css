@@ -1,0 +1,27 @@
+#app {
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 1cm;
+    font-family: 'Comfortaa'; font-size: 15px;
+}
+
+button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 8px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3f3f3f;
+}
+
+h1#app {
+    font-family: 'Comfortaa'; font-size: 32px;
+}
