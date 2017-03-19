@@ -89,7 +89,7 @@ $('#PATCH').click(function(){
         type: 'PATCH',                   
         contentType: 'application/json',
         dataType: 'json',
-        data: '{"role": "regular"}',
+        data: '{"role": "admin"}',
         success: onSuccess,
         error: onError
     })
