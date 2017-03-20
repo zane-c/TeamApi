@@ -1,8 +1,25 @@
-#app {
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 1cm;
-    font-family: 'Comfortaa'; font-size: 15px;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    background-color: #F2F2F2;
+}
+
+#container {
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 10px;
+    font-family: 'Roboto';
+    font-weight: 200;
+}
+
+
+.app {
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 3px 3px 3px #cccccc;
+    background-color: #FFFFFF;
+
 }
 
 button {
@@ -22,6 +39,51 @@ button:hover {
     background-color: #3f3f3f;
 }
 
-h1#app {
-    font-family: 'Comfortaa'; font-size: 32px;
+h1 {
+    font-family: 'Roboto';
+    font-size: 35px;
+    font-weight: 300;
+}
+
+h2 {
+    font-family: 'Roboto';
+    font-size: 15px;
+    color: #a6a6a6;
+    font-weight: 400;
+}
+
+.action-icon {
+    padding-left: 95%;
+    font-size: 30px;
+
+}
+
+
+.line-style{
+    border-top: 1px solid #cccccc;
+}
+
+
+.left {
+    padding:7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 70px;
+    float: left;
+}
+.right {
+    line-height: 50%;
+    margin-left: 70px;
+  /* Change this to whatever the width of your left column is*/
+}
+.clear {
+  clear: both;
+}
+
+.heading {
+    padding-left: 30px;
+}
+
+.icon {
+    width: 40px; 
 }

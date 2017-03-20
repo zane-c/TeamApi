@@ -14,7 +14,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
     for testing purposes
 """
 
-@csrf_protect
+@csrf_exempt
 def member_list(request):
     """
     Allows for GET requests for all members
@@ -36,7 +36,7 @@ def member_list(request):
         return JsonResponse(serializer.errors, status=400)
 
 
-@csrf_protect
+@csrf_exempt
 def member_detail(request, pk):
     """
     Allows operations on a specific member
@@ -78,6 +78,13 @@ def member_detail(request, pk):
 @ensure_csrf_cookie
 def index(request):
     """Loads testing view"""
-    template_name = 'members/root.html'
+    template_name = 'members/ui.html'
+    template = loader.get_template(template_name)
+    return HttpResponse(template.render(request))
+
+@ensure_csrf_cookie
+def react(request):
+    """Loads testing view"""
+    template_name = 'members/index.html'
     template = loader.get_template(template_name)
     return HttpResponse(template.render(request))
