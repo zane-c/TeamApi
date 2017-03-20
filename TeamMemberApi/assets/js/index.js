@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import Member from './Member';
-import './style.css';
 
 var Ui = React.createClass ({
 
@@ -28,12 +27,19 @@ var Ui = React.createClass ({
     renderList: function() {
         if (this.state.data) {
             var numMembers = Object.keys(this.state.data).length;
+            var parent = this;
             var populateMembers = this.state.data.map(function(member) {
                 var role = "";
                 if (member.role == "admin") {
                     role = "(Admin)";
                 }
-                return <Member name={member.first_name + " " + member.last_name} phone={member.phone_number} email={member.email_address} role={role} />
+                var editFunction = function() {
+                    return parent.editMode(member);
+                }
+                return (<div className="memberHover" id={member.id} onClick={editFunction}>
+                        <Member name={member.first_name + " " + member.last_name} 
+                        phone={member.phone_number} email={member.email_address} role={role} />
+                        </div>)
             })
 
             return (
@@ -64,17 +70,46 @@ var Ui = React.createClass ({
                     <h2>Fill in team member infomation below.</h2>
                 </div>
                 <hr className="line-style"/>
-                
+                <div className="inputArea">
+                    <h3>Info</h3>
+                    <input type="text" id="first_name" placeholder="First name" />
+                    <input type="text" id="last_name" placeholder="Last name" />
+                    <input type="text" id="phone" placeholder="Phone number" />
+                    <input type="text" id="email" placeholder="Email address" />
+                    <h3>Role</h3>
+                    <form className="formArea">
+                        <label className="control control--radio">Admin - Can delete members
+                          <input type="radio" name="radio" value="admin" checked/>
+                          <div className="control__indicator"></div>
+                        </label>
+                        <label className="control control--radio">Regular - Cannot delete
+                          <input type="radio" name="radio" value="regular"/>
+                          <div className="control__indicator"></div>
+                        </label>
+                    </form> 
+                </div>
+                <hr className="line-style"/>
+                <div className="actionButtons">
+                    <input className="green" type="submit" value="Save" />
+                </div>
             <br/>
           </div>
         )
     },
 
-    editMode: function() {
-        this.setState({mode: "edit"});
+    editMode: function(member) {
+        console.log(member);
+        this.setState({mode: "edit", editData: member});
     },
 
     renderEdit: function() {
+        var admin = "";
+        var regular = "checked";
+        if (this.state.editData.role == "admin") {
+            admin = "checked";
+            regular = "";
+        }
+
         return(
           <div className="app">
             <a className="action-icon" onClick={this.listMode} >X</a>
@@ -83,7 +118,29 @@ var Ui = React.createClass ({
                     <h2>Edit the member information below.</h2>
                 </div>
                 <hr className="line-style"/>
-
+                <div className="inputArea">
+                    <form className="formArea">
+                        <h3>Info</h3>
+                        <input type="text" id="first_name" defaultValue={this.state.editData.first_name} placeholder="First name"/>
+                        <input type="text" id="last_name" defaultValue={this.state.editData.last_name} placeholder="Last name" />
+                        <input type="text" id="phone" defaultValue={this.state.editData.phone_number} placeholder="Phone number" />
+                        <input type="text" id="email" defaultValue={this.state.editData.email_address} placeholder="Email address" />
+                        <h3>Role</h3>
+                        <label className="control control--radio">Admin - Can delete members
+                          <input type="radio" name="role" value="admin" defaultChecked={admin}/>
+                          <div className="control__indicator"></div>
+                        </label>
+                        <label className="control control--radio">Regular - Cannot delete
+                          <input type="radio" name="role" value="regular" defaultChecked={regular}/>
+                          <div className="control__indicator"></div>
+                        </label>
+                    </form> 
+                </div>
+                <hr className="line-style"/>
+                <div className="actionButtons">
+                    <input className="green" type="submit" value="Save" />
+                    <input className="red" type="submit" value="Delete" onsubmit={this.delete}/>
+                </div>
             <br/>
           </div>
         )
@@ -91,6 +148,10 @@ var Ui = React.createClass ({
 
     componentDidMount: function() {
         this.loadMembers();
+    },
+
+    delete: function() {
+        alert("delete");
     },
 
     render: function() {

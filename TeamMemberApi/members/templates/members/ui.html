@@ -18,30 +18,32 @@
                 <h2>You have <span id="team-count">0</span> team members.</h2>
             </div>
             <hr class="line-style"/>
-            <div class="member">
-                <div class="left">
-                    <img class="icon" src="http://bitbyte.site/hash/user2.png"/>
-                </div>
-                <div class="right">
-                    <p><strong>Adam Marvero</strong> (Admin)</p>
-                    <p>805-252-5918</p>
-                    <p>zane.c@gmail.com</p>
-                </div>
-                <div class="clear"></div>
-                <hr class="line-style"/>
+            
+            <div class="inputArea">
+                <h3>Info</h3>
+                <input type="text" id="first_name" placeholder="First name">
+                <input type="text" id="last_name" placeholder="Last name">
+                <input type="text" id="phone" placeholder="Phone number">
+                <input type="text" id="email" placeholder="Email address">
+                <h3>Role</h3>
+                <form class="formArea">
+                    <label class="control control--radio">Admin - Can delete members
+                      <input type="radio" name="radio" value="admin" checked/>
+                      <div class="control__indicator"></div>
+                    </label>
+                    <label class="control control--radio">Regular - Cannot delete
+                      <input type="radio" name="radio" value="regular"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                </form> 
             </div>
-            <div class="member">
-                <div class="left">
-                    <img style="width:40px" src="http://bitbyte.site/hash/user2.png"/>
-                </div>
-                <div class="right">
-                    <p><strong>Adam Marvero</strong> (Admin)</p>
-                    <p>805-252-5918</p>
-                    <p>zane.c@gmail.com</p>
-                </div>
-                <div class="clear"></div>
-                <hr class="line-style"/>
+            <hr class="line-style"/>
+            <div class="actionButtons">
+                <input class="green" type="submit" value="Save">
+                <input class="red" type="submit" value="Delete">
             </div>
+
+
             <br>
             
 
