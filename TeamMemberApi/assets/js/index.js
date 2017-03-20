@@ -41,7 +41,6 @@ var Ui = React.createClass ({
                         phone={member.phone_number} email={member.email_address} role={role} />
                         </div>)
             })
-
             return (
               <div className="app">
                 <a className="action-icon" onClick={this.addMode} >+</a>
@@ -71,26 +70,26 @@ var Ui = React.createClass ({
                 </div>
                 <hr className="line-style"/>
                 <div className="inputArea">
-                    <h3>Info</h3>
-                    <input type="text" id="first_name" placeholder="First name" />
-                    <input type="text" id="last_name" placeholder="Last name" />
-                    <input type="text" id="phone" placeholder="Phone number" />
-                    <input type="text" id="email" placeholder="Email address" />
-                    <h3>Role</h3>
                     <form className="formArea">
+                        <h3>Info</h3>
+                        <input type="text" id="first_name" placeholder="First name" />
+                        <input type="text" id="last_name" placeholder="Last name" />
+                        <input type="text" id="phone" placeholder="Phone number" />
+                        <input type="text" id="email" placeholder="Email address" />
+                        <h3>Role</h3>
                         <label className="control control--radio">Admin - Can delete members
-                          <input type="radio" name="radio" value="admin" checked/>
+                          <input type="radio" name="radio" value="admin"/>
                           <div className="control__indicator"></div>
                         </label>
                         <label className="control control--radio">Regular - Cannot delete
-                          <input type="radio" name="radio" value="regular"/>
+                          <input type="radio" name="radio" value="regular" defaultChecked/>
                           <div className="control__indicator"></div>
                         </label>
                     </form> 
                 </div>
                 <hr className="line-style"/>
                 <div className="actionButtons">
-                    <input className="green" type="submit" value="Save" />
+                    <input className="green" type="submit" value="Save" onClick={this.addNew}/>
                 </div>
             <br/>
           </div>
@@ -138,8 +137,8 @@ var Ui = React.createClass ({
                 </div>
                 <hr className="line-style"/>
                 <div className="actionButtons">
-                    <input className="green" type="submit" value="Save" />
-                    <input className="red" type="submit" value="Delete" onsubmit={this.delete}/>
+                    <input className="green" type="submit" value="Save" onClick={this.save}/>
+                    <input className="red" type="submit" value="Delete" onClick={this.delete}/>
                 </div>
             <br/>
           </div>
@@ -148,10 +147,19 @@ var Ui = React.createClass ({
 
     componentDidMount: function() {
         this.loadMembers();
+        setInterval(this.loadMembers, 10000);
     },
 
     delete: function() {
         alert("delete");
+    },
+
+    save: function() {
+        alert("save");
+    },
+
+    addNew: function() {
+        alert("add new contact");
     },
 
     render: function() {

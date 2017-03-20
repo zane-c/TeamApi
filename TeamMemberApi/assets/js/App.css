@@ -4,14 +4,18 @@ body {
     background-color: #F2F2F2;
 }
 
-.memberHover:hover {
+.member {
+    padding-top: 4px;
+}
+
+.member:hover {
     background-color: #fbfbfb;
     cursor: pointer;
 }
 
 #container {
-    padding-left: 35%;
-    padding-right: 35%;
+    width: 400px;
+    margin: 0 auto;
     padding-top: 10px;
     font-family: 'Roboto';
     
@@ -55,11 +59,12 @@ h2 {
     padding:7px;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 20px;
     width: 70px;
     float: left;
 }
 .right {
-    line-height: 50%;
+    line-height: 40%;
     margin-left: 70px;
   /* Change this to whatever the width of your left column is*/
 }
@@ -93,10 +98,9 @@ input[type=text], select {
 }
 
 input[type=submit] {
-    width: 48%;
+    width: 49%;
     padding: 14px 20px;
     margin: 8px 0;
-
     border-radius: 4px;
     cursor: pointer;
 }
@@ -109,7 +113,7 @@ input[type=submit]:hover {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding-right: 10px;
+
 }
 .green:hover {
     background-color: #45a049;
