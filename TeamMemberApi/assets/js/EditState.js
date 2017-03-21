@@ -1,14 +1,66 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 var EditState = React.createClass ({
 
     saveMember: function() {
-        alert("save");
+
+        //check all fields are full
+        if (    $('#first_name').val() == ""
+             || $('#last_name').val() == ""
+             || $('#email').val() == ""
+             || $('#phone_name').val() == "") {
+
+            alert("Fields cannot be left empty")
+        } else {
+
+            //exit function
+            var exit = this.props.navToList
+
+            //get admin
+            var role = "regular"
+            if ($('#role').is(':checked')) { 
+                role = "admin" 
+            }
+
+            var url = "http://127.0.0.1:8000/members/" + this.props.memberId
+            var file = {
+                        "first_name": $('#first_name').val(),
+                        "last_name": $('#last_name').val(),
+                        "email_address": $('#email').val(),
+                        "phone_number": $('#phone').val(),
+                        "role": role
+                       }
+
+            console.log(JSON.stringify(file))
+            $.ajax({
+                url: url,
+                type: 'PUT',                   
+                contentType: 'application/json',
+                dataType: 'json',
+                processData: false,
+                data: JSON.stringify(file),
+                success: exit,
+                error: function() {
+                    alert('failure to edit item')
+                }
+            })
+        }
     },
 
     deleteMember: function() {
-        alert("delete");
+        var exit = this.props.navToList
+        var url = "http://127.0.0.1:8000/members/" + this.props.memberId
+        $.ajax({
+            url: url,
+            type: 'DELETE',                   
+            contentType: 'application/json',
+            dataType: 'json',
+            success: exit,
+            error: function() {
+                alert('failure to delete item')
+            }
+        })
     },
 
     render: function() {
@@ -29,24 +81,24 @@ var EditState = React.createClass ({
                         <input type="text" id="email" defaultValue={this.props.email} placeholder="Email address" />
                         <h3>Role</h3>
                         <label className="control control--radio">Admin - Can delete members
-                          <input type="radio" name="role" value="admin" defaultChecked={this.props.roleAdmin}/>
+                          <input id="role" type="radio" name="role" value="admin" defaultChecked={this.props.roleAdmin}/>
                           <div className="control__indicator"></div>
                         </label>
                         <label className="control control--radio">Regular - Cannot delete
-                          <input type="radio" name="role" value="regular" defaultChecked={this.props.roleRegular}/>
+                          <input id="role" type="radio" name="role" value="regular" defaultChecked={this.props.roleRegular}/>
                           <div className="control__indicator"></div>
                         </label>
                     </form> 
                 </div>
                 <hr className="line-style"/>
                 <div className="actionButtons">
-                    <input className="green" type="submit" value="Save" onClick={this.saveMember}/>
                     <input className="red" type="submit" value="Delete" onClick={this.deleteMember}/>
+                    <input className="green" type="submit" value="Save" onClick={this.saveMember}/>   
                 </div>
                 <br/>
             </div>
         )
     } 
-});
+})
 
-export default EditState;
+export default EditState

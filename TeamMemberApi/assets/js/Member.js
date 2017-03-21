@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 var Member = React.createClass ({
 
@@ -7,7 +7,7 @@ var Member = React.createClass ({
     return (
         <div id={this.props.memberId} className="member" onClick={this.props.navToEdit}>
             <div className="left">
-                <img className="icon" src="http://bitbyte.site/hash/user2.png"/>
+                <img className="icon" src="http://bitbyte.site/hash/user4.png"/>
             </div>
             <div className="right">
                 <p><strong>{this.props.name}</strong> {this.props.role}</p>
@@ -19,6 +19,6 @@ var Member = React.createClass ({
         </div>
     )
   }
-});
+})
 
-export default Member;
+export default Member
