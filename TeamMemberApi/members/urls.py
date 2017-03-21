@@ -8,5 +8,4 @@ urlpatterns = [
     url(r'^members/$', views.member_list),
     url(r'^members/(?P<pk>[0-9]+)/*$', views.member_detail),
     url(r'^$', views.index),
-    url(r'^react/*$', views.react),
 ]

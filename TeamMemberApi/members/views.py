@@ -8,11 +8,6 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.views import generic
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-"""
-    WARNING: Cross site requests not allowed. You can
-    add @csrf_exempt decorator above functions below
-    for testing purposes
-"""
 
 @csrf_exempt
 def member_list(request):
@@ -74,16 +69,8 @@ def member_detail(request, pk):
         member.delete()
         return HttpResponse(status=204)
 
-
 @ensure_csrf_cookie
 def index(request):
-    """Loads testing view"""
-    template_name = 'members/ui.html'
-    template = loader.get_template(template_name)
-    return HttpResponse(template.render(request))
-
-@ensure_csrf_cookie
-def react(request):
     """Loads testing view"""
     template_name = 'members/index.html'
     template = loader.get_template(template_name)
