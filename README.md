@@ -2,13 +2,19 @@
 
 This project implements a team member management HTTP REST API built in Django using the Django Rest Framework and MySQL databases
 
+[Backend](#backend)
+[Frontend](#frontend)
+
+
 ## Dependencies
 * Python 3.x
 * Django
 * MySQL
 * mysqlclient (python lib adding MySql support to django)
 * Django Rest Framework (Makes creating Rest Api a breeze)
+* React (And React dependences babel, webpack, etc)
 
+# Backend
 ## Supported Functionality
 
 A member in the database conforms to this model:
@@ -113,12 +119,37 @@ Reponse `202: Accepted`
 `403: Forbidden` will be returned if atempts to access data cross-site
 see [TeamMemberApi\members\views.py](https://github.com/zane-c/TeamApi/blob/development/TeamMemberApi/members/views.py) for more information
 
+# Frontend
 
-### Testing
+The frontend user interface can be found at `http://127.0.0.1:8000`
 
-A generic testing page is available at `http://127.0.0.1:8000`
-More info on testing files can be found here [test.js](https://github.com/zane-c/TeamApi/blob/development/TeamMemberApi/members/static/members/test.js)
+The empty api...<br />
+<img src="http://bitbyte.site/hash/images/test1.png" alt="Drawing" width="500">
 
-![image_here](http://bitbyte.site/hash/get2.png)
+Adding a member...<br />
+<img src="http://bitbyte.site/hash/images/test2.png" alt="Drawing" width="500">
 
-    
+Populating field with data...<br />
+<img src="http://bitbyte.site/hash/images/test3.png" alt="Drawing" width="500">
+
+Updates listing view...<br />
+<img src="http://bitbyte.site/hash/images/test4.png" alt="Drawing" width="500">
+
+Adding some friends...<br />
+<img src="http://bitbyte.site/hash/images/test5.png" alt="Drawing" width="500">
+
+Editing a member...<br />
+<img src="http://bitbyte.site/hash/images/test6.png" alt="Drawing" width="500">
+
+Making cooler friends...<br />
+<img src="http://bitbyte.site/hash/images/test7.png" alt="Drawing" width="500">
+
+Returns to listing view with updated data...<br />
+<img src="http://bitbyte.site/hash/images/test8.png" alt="Drawing" width="500">
+
+But we probably don't have much in common... so delete...<br />
+<img src="http://bitbyte.site/hash/images/test9.png" alt="Drawing" width="500">
+
+Returning to list view...<br />
+<img src="http://bitbyte.site/hash/images/test10.png" alt="Drawing" width="500">
+
