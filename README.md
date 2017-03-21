@@ -15,7 +15,6 @@ This project implements a team member management HTTP REST API built in Django u
 * React (And React dependences babel, webpack, etc)
 
 # Backend
-## Supported Functionality
 
 A member in the database conforms to this model:
 * id (unique)
