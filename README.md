@@ -153,3 +153,4 @@ But we probably don't have much in common... so delete...<br />
 Returning to list view...<br />
 <img src="http://bitbyte.site/hash/images/test10.png" alt="Drawing" width="500">
 
+### All data persists in database api after page refresh
