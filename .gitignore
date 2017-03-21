@@ -1,2 +1,4 @@
 *.pyc
 TeamMemberApi/assets/bundles/*.js
+.idea/*
+*.iml
