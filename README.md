@@ -123,33 +123,33 @@ see [TeamMemberApi\members\views.py](https://github.com/zane-c/TeamApi/blob/deve
 The frontend user interface can be found at `http://127.0.0.1:8000`
 
 The empty api...<br />
-<img src="http://bitbyte.site/hash/images/test1.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test1.png" alt="Drawing" width="400">
 
 Adding a member...<br />
-<img src="http://bitbyte.site/hash/images/test2.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test2.png" alt="Drawing" width="400">
 
 Populating field with data...<br />
-<img src="http://bitbyte.site/hash/images/test3.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test3.png" alt="Drawing" width="400">
 
 Updates listing view...<br />
-<img src="http://bitbyte.site/hash/images/test4.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test4.png" alt="Drawing" width="400">
 
 Adding some friends...<br />
-<img src="http://bitbyte.site/hash/images/test5.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test5.png" alt="Drawing" width="400">
 
 Editing a member...<br />
-<img src="http://bitbyte.site/hash/images/test6.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test6.png" alt="Drawing" width="400">
 
 Making cooler friends...<br />
-<img src="http://bitbyte.site/hash/images/test7.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test7.png" alt="Drawing" width="400">
 
 Returns to listing view with updated data...<br />
-<img src="http://bitbyte.site/hash/images/test8.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test8.png" alt="Drawing" width="400">
 
 But we probably don't have much in common... so delete...<br />
-<img src="http://bitbyte.site/hash/images/test9.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test9.png" alt="Drawing" width="400">
 
 Returning to list view...<br />
-<img src="http://bitbyte.site/hash/images/test10.png" alt="Drawing" width="500">
+<img src="http://bitbyte.site/hash/images/test10.png" alt="Drawing" width="400">
 
 ### All data persists in database api after page refresh
