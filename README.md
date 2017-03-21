@@ -2,7 +2,7 @@
 
 This project implements a team member management HTTP REST API built in Django using the Django Rest Framework and MySQL databases
 
-[Backend](#backend)
+[Backend](#backend) | 
 [Frontend](#frontend)
 
 
