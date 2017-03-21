@@ -16,10 +16,15 @@
     "css-loader": "^0.27.3",
     "file-loader": "^0.10.1",
     "jquery": "^3.2.0",
+    "postcss-modules-values": "^1.2.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "require-directory": "^2.1.1",
     "style-loader": "^0.14.1",
-    "webpack": "^2.1.0-beta.22",
+    "webpack": "^2.1.0-beta.21",
     "webpack-bundle-tracker": "^0.2.0"
+  },
+  "dependencies": {
+    "require-dir": "^0.3.1"
   }
 }

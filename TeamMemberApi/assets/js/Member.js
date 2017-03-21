@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-class Member extends Component {
-  render() {
+var Member = React.createClass ({
+
+  render: function() {
     return (
-        <div className="member">
+        <div id={this.props.memberId} className="member" onClick={this.props.navToEdit}>
             <div className="left">
                 <img className="icon" src="http://bitbyte.site/hash/user2.png"/>
             </div>
@@ -16,8 +17,8 @@ class Member extends Component {
             <div className="clear"></div>
             <hr className="line-style"/>
         </div>
-    );
+    )
   }
-}
+});
 
 export default Member;
