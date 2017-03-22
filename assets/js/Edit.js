@@ -91,7 +91,7 @@ const Edit = React.createClass({
                                    defaultChecked={this.props.roleAdmin}/>
                             <div className="control__indicator"></div>
                         </label>
-                        <label className="control control--radio">Regular - Cannot delete
+                        <label className="control control--radio">Regular - Cannot delete members
                             <input id="role" type="radio" name="role" value="regular"
                                    defaultChecked={this.props.roleRegular}/>
                             <div className="control__indicator"></div>

@@ -21,7 +21,7 @@
     "react-dom": "^15.4.2",
     "require-directory": "^2.1.1",
     "style-loader": "^0.14.1",
-    "webpack": "^2.1.0-beta.21",
+    "webpack": "^2.1.0-beta.22",
     "webpack-bundle-tracker": "^0.2.0"
   },
   "dependencies": {

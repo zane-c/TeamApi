@@ -76,7 +76,7 @@ const Add = React.createClass({
                             <input type="radio" id="role" name="radio" value="admin"/>
                             <div className="control__indicator"></div>
                         </label>
-                        <label className="control control--radio">Regular - Cannot delete
+                        <label className="control control--radio">Regular - Cannot delete members
                             <input type="radio" id="role" name="radio" value="regular" defaultChecked/>
                             <div className="control__indicator"></div>
                         </label>
