@@ -73,7 +73,7 @@ var process = module.exports = {};
 
 // cached from whatever global is present so that test runners that stub it
 // don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// wrapped in strict view code which doesn't define any globals.  It's inside a
 // function because try/catches deoptimize in certain engines.
 
 var cachedSetTimeout;
@@ -4695,8 +4695,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
 
 // Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
-// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
-// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
+// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict view
+// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict view should be common
 // enough that all such attempts are guarded in a try block.
 "use strict";
 
@@ -8156,7 +8156,7 @@ function adoptValue( value, resolve, reject, noValue ) {
 	} catch ( value ) {
 
 		// Support: Android 4.0 only
-		// Strict mode functions invoked without .call/.apply get global-object context
+		// Strict view functions invoked without .call/.apply get global-object context
 		reject.apply( undefined, [ value ] );
 	}
 }
@@ -13752,7 +13752,7 @@ jQuery.extend( {
 			s.data = s.data.replace( r20, "+" );
 		}
 
-		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+		// Set the If-Modified-Since and/or If-None-Match header, if in ifModified view.
 		if ( s.ifModified ) {
 			if ( jQuery.lastModified[ cacheURL ] ) {
 				jqXHR.setRequestHeader( "If-Modified-Since", jQuery.lastModified[ cacheURL ] );
@@ -13879,7 +13879,7 @@ jQuery.extend( {
 			// If successful, handle type chaining
 			if ( isSuccess ) {
 
-				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified mode.
+				// Set the If-Modified-Since and/or If-None-Match header, if in ifModified view.
 				if ( s.ifModified ) {
 					modified = jqXHR.getResponseHeader( "Last-Modified" );
 					if ( modified ) {
@@ -16377,7 +16377,7 @@ if (process.env.NODE_ENV !== 'production') {
    * Returns whether
    */
   var isTagValidWithParent = function (tag, parentTag) {
-    // First, let's check if we're in an unusual parsing mode...
+    // First, let's check if we're in an unusual parsing view...
     switch (parentTag) {
       // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inselect
       case 'select':
@@ -16391,7 +16391,7 @@ if (process.env.NODE_ENV !== 'production') {
 
       // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intd
       // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-incaption
-      // No special behavior since these rules fall back to "in body" mode for
+      // No special behavior since these rules fall back to "in body" view for
       // all except special table nodes which cause bad parsing behavior anyway.
 
       // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-intr
@@ -16423,7 +16423,7 @@ if (process.env.NODE_ENV !== 'production') {
         return tag === 'html';
     }
 
-    // Probably in the "in body" parsing mode, so we outlaw only tag combos
+    // Probably in the "in body" parsing view, so we outlaw only tag combos
     // where the parsing rules cause implicit opens or closes to be added.
     // https://html.spec.whatwg.org/multipage/syntax.html#parsing-main-inbody
     switch (tag) {
@@ -19761,7 +19761,7 @@ module.exports = ReactEmptyComponent;
 
 var ReactFeatureFlags = {
   // When true, call console.time() before and .timeEnd() after each top-level
-  // render (both initial renders and updates). Useful when looking at prod-mode
+  // render (both initial renders and updates). Useful when looking at prod-view
   // timeline profiles in Chrome, for example.
   logTopLevelRenders: false
 };
@@ -21544,7 +21544,7 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
     },
 
     getInitialState: function () {
-        return { data: [], mode: "list" };
+        return { data: [], view: "list" };
     },
 
     componentDidMount: function () {
@@ -21553,17 +21553,17 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
 
     /* ----- State Management Functions --------*/
 
-    listMode: function () {
+    listState: function () {
         this.loadMembers();
-        this.setState({ mode: "list" });
+        this.setState({ view: "list" });
     },
 
-    addMode: function () {
-        this.setState({ mode: "add" });
+    addState: function () {
+        this.setState({ view: "add" });
     },
 
-    editMode: function (member) {
-        this.setState({ mode: "edit", editData: member });
+    editState: function (member) {
+        this.setState({ view: "edit", editData: member });
     },
 
     /* ----- Sub-Render Functions -------- */
@@ -21579,7 +21579,7 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
                     role = "(Admin)";
                 }
                 const navToEdit = function () {
-                    return parent.editMode(member);
+                    return parent.editState(member);
                 };
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1__Member__["a" /* default */], { memberId: member.id, name: member.first_name + " " + member.last_name,
                     phone: member.phone_number, email: member.email_address, role: role,
@@ -21590,7 +21590,7 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
                 { className: 'app' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     'a',
-                    { className: 'action-icon', onClick: this.addMode },
+                    { className: 'action-icon', onClick: this.addState },
                     '+'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -21617,7 +21617,7 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
     },
 
     renderAdd: function () {
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Add__["a" /* default */], { navToList: this.listMode });
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Add__["a" /* default */], { navToList: this.listState });
     },
 
     renderEdit: function () {
@@ -21628,7 +21628,7 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
             regular = "";
         }
         const members = this.state.editData;
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Edit__["a" /* default */], { memberId: members.id, navToList: this.listMode, fname: members.first_name,
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Edit__["a" /* default */], { memberId: members.id, navToList: this.listState, fname: members.first_name,
             lname: members.last_name, phone: members.phone_number,
             email: members.email_address, roleAdmin: admin, roleRegular: regular });
     },
@@ -21636,11 +21636,11 @@ const List = __WEBPACK_IMPORTED_MODULE_0_react___default.a.createClass({
     /* ----- Master Render Functions -------- */
 
     render: function () {
-        if (this.state.mode === "list") {
+        if (this.state.view === "list") {
             return this.renderList();
-        } else if (this.state.mode === "add") {
+        } else if (this.state.view === "add") {
             return this.renderAdd();
-        } else if (this.state.mode === "edit") {
+        } else if (this.state.view === "edit") {
             return this.renderEdit();
         }
     }
@@ -23328,7 +23328,7 @@ function isFallbackCompositionStart(topLevelType, nativeEvent) {
 }
 
 /**
- * Does our fallback mode think that this event is the end of composition?
+ * Does our fallback view think that this event is the end of composition?
  *
  * @param {string} topLevelType
  * @param {object} nativeEvent
@@ -25822,11 +25822,11 @@ if (process.env.NODE_ENV !== 'production') {
     var testFunc = function testFn() {};
     process.env.NODE_ENV !== 'production' ? warning((testFunc.name || testFunc.toString()).indexOf('testFn') !== -1, 'It looks like you\'re using a minified copy of the development build ' + 'of React. When deploying React apps to production, make sure to use ' + 'the production build which skips development warnings and is faster. ' + 'See https://fb.me/react-minification for more details.') : void 0;
 
-    // If we're in IE8, check to see if we are in compatibility mode and provide
-    // information on preventing compatibility mode
+    // If we're in IE8, check to see if we are in compatibility view and provide
+    // information on preventing compatibility view
     var ieCompatibilityMode = document.documentMode && document.documentMode < 8;
 
-    process.env.NODE_ENV !== 'production' ? warning(!ieCompatibilityMode, 'Internet Explorer is running in compatibility mode; please add the ' + 'following tag to your HTML to prevent this from happening: ' + '<meta http-equiv="X-UA-Compatible" content="IE=edge" />') : void 0;
+    process.env.NODE_ENV !== 'production' ? warning(!ieCompatibilityMode, 'Internet Explorer is running in compatibility view; please add the ' + 'following tag to your HTML to prevent this from happening: ' + '<meta http-equiv="X-UA-Compatible" content="IE=edge" />') : void 0;
 
     var expectedFeatures = [
     // shims
@@ -30612,7 +30612,7 @@ var ATTRS = {
   maskContentUnits: 'maskContentUnits',
   maskUnits: 'maskUnits',
   mathematical: 0,
-  mode: 0,
+  view: 0,
   numOctaves: 'numOctaves',
   offset: 0,
   opacity: 0,
@@ -30713,7 +30713,7 @@ var ATTRS = {
   visibility: 0,
   widths: 0,
   wordSpacing: 'word-spacing',
-  writingMode: 'writing-mode',
+  writingMode: 'writing-view',
   x: 0,
   xHeight: 'x-height',
   x1: 0,
@@ -34934,7 +34934,7 @@ module.exports = function (css) {
 
 var g;
 
-// This works in non-strict mode
+// This works in non-strict view
 g = (function() { return this; })();
 
 try {

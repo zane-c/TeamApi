@@ -26,7 +26,7 @@ const List = React.createClass({
     },
 
     getInitialState: function () {
-        return {data: [], mode: "list"}
+        return {data: [], view: "list"}
     },
 
     componentDidMount: function () {
@@ -36,17 +36,17 @@ const List = React.createClass({
 
     /* ----- State Management Functions --------*/
 
-    listMode: function () {
+    listState: function () {
         this.loadMembers();
-        this.setState({mode: "list"});
+        this.setState({view: "list"});
     },
 
-    addMode: function () {
-        this.setState({mode: "add"});
+    addState: function () {
+        this.setState({view: "add"});
     },
 
-    editMode: function (member) {
-        this.setState({mode: "edit", editData: member});
+    editState: function (member) {
+        this.setState({view: "edit", editData: member});
     },
 
 
@@ -56,22 +56,22 @@ const List = React.createClass({
 
         if (this.state.data) {
             const numMembers = Object.keys(this.state.data).length;
-            const parent = this;
+            const edit = this.editState;
             const populateMembers = this.state.data.map(function (member) {
                 let role = "";
                 if (member.role === "admin") {
                     role = "(Admin)";
                 }
                 const navToEdit = function () {
-                    return parent.editMode(member);
-                };
-                return (<Member memberId={member.id} name={member.first_name + " " + member.last_name}
+                    return edit(member);
+                }
+                return (<Member key={member.id} name={member.first_name + " " + member.last_name}
                                 phone={member.phone_number} email={member.email_address} role={role}
                                 navToEdit={navToEdit}/>)
             });
             return (
                 <div className="app">
-                    <a className="action-icon" onClick={this.addMode}>+</a>
+                    <a className="action-icon" onClick={this.addState}>+</a>
                     <div className="heading">
                         <h1>Team members</h1>
                         <h2>You have {numMembers} team members.</h2>
@@ -85,7 +85,7 @@ const List = React.createClass({
     },
 
     renderAdd: function () {
-        return (<Add navToList={this.listMode}/>)
+        return (<Add navToList={this.listState}/>)
     },
 
     renderEdit: function () {
@@ -96,7 +96,7 @@ const List = React.createClass({
             regular = "";
         }
         const members = this.state.editData;
-        return (<Edit memberId={members.id} navToList={this.listMode} fname={members.first_name}
+        return (<Edit memberId={members.id} navToList={this.listState} fname={members.first_name}
                       lname={members.last_name} phone={members.phone_number}
                       email={members.email_address} roleAdmin={admin} roleRegular={regular}/>)
     },
@@ -105,11 +105,11 @@ const List = React.createClass({
     /* ----- Master Render Functions -------- */
 
     render: function () {
-        if (this.state.mode === "list") {
+        if (this.state.view === "list") {
             return this.renderList();
-        } else if (this.state.mode === "add") {
+        } else if (this.state.view === "add") {
             return this.renderAdd();
-        } else if (this.state.mode === "edit") {
+        } else if (this.state.view === "edit") {
             return this.renderEdit();
         }
     }

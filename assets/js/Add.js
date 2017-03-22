@@ -12,7 +12,7 @@ const Add = React.createClass({
         const fname = $('#first_name').val();
         const lname = $('#last_name').val();
         const email = $('#email').val();
-        const phone = $('#phone_name').val();
+        const phone = $('#phone').val();
 
         //check all fields are full
         if (fname === ""
