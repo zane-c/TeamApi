@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 /*
     Simple React component that encapsulates
@@ -8,7 +7,7 @@ import ReactDOM from 'react-dom'
     phone field. Clicking on a member should call
     the edit view with the proper member data
 */
-var Member = React.createClass ({
+const Member = React.createClass ({
 
   render: function() {
     return (
@@ -26,6 +25,6 @@ var Member = React.createClass ({
         </div>
     )
   }
-})
+});
 
-export default Member
+export default Member;

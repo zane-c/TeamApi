@@ -64,7 +64,7 @@ const List = React.createClass({
                 }
                 const navToEdit = function () {
                     return edit(member);
-                }
+                };
                 return (<Member key={member.id} name={member.first_name + " " + member.last_name}
                                 phone={member.phone_number} email={member.email_address} role={role}
                                 navToEdit={navToEdit}/>)

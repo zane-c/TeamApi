@@ -17,27 +17,27 @@ body {
     width: 400px;
     margin: 0 auto;
     padding-top: 10px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', serif;
     
     font-weight: 200;
 }
+
 .app {
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     box-shadow: 3px 3px 3px #cccccc;
     background-color: #FFFFFF;
-
 }
 
 h1 {
-    font-family: 'Roboto';
+    font-family: 'Roboto', serif;
     font-size: 30px;
-    font-weight: 1000;
+    font-weight: 900;
 }
 
 h2 {
-    font-family: 'Roboto';
+    font-family: 'Roboto', serif;
     font-size: 15px;
     color: #a6a6a6;
     font-weight: 400;
@@ -62,10 +62,7 @@ h2 {
 
 
 .left {
-    padding:7px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 20px;
+    padding: 7px 30px 20px;
     width: 70px;
     float: left;
 }
@@ -88,7 +85,7 @@ h2 {
 
 
 h3 {
-    font-family: 'Roboto';
+    font-family: 'Roboto', serif;
     font-size: 22px;
     font-weight: 400;
 }
@@ -119,8 +116,8 @@ input[type=submit]:hover {
     border: none;
     color: white;
     margin: 10px;
-
 }
+
 .green:hover {
     background-color: #45a049;
 }
@@ -129,17 +126,13 @@ input[type=submit]:hover {
     margin: 10px;
     padding-left: 10px;
     background-color: white;
-    border-width: 1px;
-    border-color: red;
+    border: 1px red;
     color: red;
 }
 
 .red:hover {
     background-color: #f2f2f2;
 }
-
-
-
 
 .inputArea {
     padding-left: 30px;
@@ -232,7 +225,6 @@ input[type=submit]:hover {
     border: solid #fff;
     border-width: 0 2px 2px 0;
 }
-
 
 /* Radio button inner circle */
 .control--radio .control__indicator:after {
