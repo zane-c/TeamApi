@@ -2,3 +2,4 @@
 TeamMemberApi/assets/bundles/*.js
 .idea/*
 *.iml
+node_modules/*
